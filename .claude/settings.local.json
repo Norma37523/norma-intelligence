@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add *)",
+      "PowerShell(Get-Command node, npm, npx, pnpm, yarn -ErrorAction SilentlyContinue)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs\")",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs:/c/Users/grego/AppData/Roaming/npm\")",
+      "Read(//c/Users/grego/AppData/Roaming/npm//**)",
+      "PowerShell(Get-ChildItem \"$env:APPDATA\\\\npm\" -ErrorAction SilentlyContinue | Select-Object Name; Get-ChildItem \"$env:LOCALAPPDATA\\\\pnpm\" -ErrorAction SilentlyContinue | Select-Object Name -First 5)",
+      "PowerShell($nodePath = \"C:\\\\Program Files\\\\nodejs\"; $npmCmd = \"$nodePath\\\\npm.cmd\"; & $npmCmd config get prefix 2>$null)",
+      "Bash(npm install *)",
+      "Bash(node ./node_modules/typescript/bin/tsc --noEmit)",
+      "Bash(node ./node_modules/.bin/next build)",
+      "Bash(node ./node_modules/next/dist/bin/next build)"
+    ]
+  }
+}

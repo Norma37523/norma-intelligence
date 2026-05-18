@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+   Norma Intelligence — Design Tokens
+   Brand: teal #00C2B4 (primary action) / navy #1A2B45 (institutional)
+   ============================================================================= */
+
+@layer base {
+  :root {
+    /* Neutrals */
+    --background: 0 0% 100%;
+    --foreground: 218 45% 12%; /* navy 800-ish */
+
+    --card: 0 0% 100%;
+    --card-foreground: 218 45% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 45% 12%;
+
+    /* Primary = Norma teal #00C2B4 */
+    --primary: 174 100% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary = Norma navy #1A2B45 */
+    --secondary: 218 45% 19%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 218 20% 96%;
+    --muted-foreground: 218 15% 45%;
+
+    --accent: 174 70% 95%;
+    --accent-foreground: 174 100% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 20% 90%;
+    --input: 218 20% 90%;
+    --ring: 174 100% 38%;
+
+    --radius: 0.75rem;
+
+    /* Charts */
+    --chart-1: 174 100% 38%;
+    --chart-2: 218 45% 19%;
+    --chart-3: 32 95% 56%;
+    --chart-4: 142 71% 45%;
+    --chart-5: 199 89% 48%;
+  }
+
+  .dark {
+    --background: 218 45% 8%;
+    --foreground: 218 20% 96%;
+
+    --card: 218 45% 11%;
+    --card-foreground: 218 20% 96%;
+
+    --popover: 218 45% 11%;
+    --popover-foreground: 218 20% 96%;
+
+    --primary: 174 100% 45%;
+    --primary-foreground: 218 45% 12%;
+
+    --secondary: 218 30% 22%;
+    --secondary-foreground: 218 20% 96%;
+
+    --muted: 218 30% 16%;
+    --muted-foreground: 218 15% 65%;
+
+    --accent: 174 60% 20%;
+    --accent-foreground: 174 100% 85%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 30% 20%;
+    --input: 218 30% 20%;
+    --ring: 174 100% 45%;
+
+    --chart-1: 174 100% 45%;
+    --chart-2: 218 80% 60%;
+    --chart-3: 32 95% 60%;
+    --chart-4: 142 71% 50%;
+    --chart-5: 199 89% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1, 'tnum' 1;
+  }
+
+  /* Tabular numerals for financial data — critical for DRE alignment */
+  .tabular-nums,
+  table td,
+  table th {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
