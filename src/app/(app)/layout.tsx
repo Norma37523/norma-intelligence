@@ -1,16 +1,11 @@
 import { requireSession } from '@/features/auth/server';
-
 import { AppShell } from '@/shared/components/layout/app-shell';
 
-export default async function AppLayout({ children }: { children: React.ReactNode }) {
-  let session;
-  try {
-    session = await requireSession();
-  } catch (err) {
-    // Log the real error — visible in Vercel Function Logs
-    console.error('[AppLayout] requireSession failed:', err);
-    throw err;
-  }
+// Todas as rotas autenticadas são dinâmicas por definição
+// (usam cookies de sessão — nunca devem ser pre-renderizadas estaticamente)
+export const dynamic = 'force-dynamic';
 
+export default async function AppLayout({ children }: { children: React.ReactNode }) {
+  const session = await requireSession();
   return <AppShell session={session}>{children}</AppShell>;
 }
