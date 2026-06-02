@@ -25,8 +25,10 @@ export async function getSession(): Promise<SessionContext | null> {
 
   const {
     data: { user },
+    error: userError,
   } = await supabase.auth.getUser();
 
+  if (userError) console.error('[getSession] auth.getUser error:', userError.message);
   if (!user) return null;
 
   const [profileResult, membershipsResult] = await Promise.all([
@@ -42,6 +44,9 @@ export async function getSession(): Promise<SessionContext | null> {
       .eq('user_id', user.id)
       .returns<MembershipRow[]>(),
   ]);
+
+  if (profileResult.error)      console.error('[getSession] profiles error:', profileResult.error.message);
+  if (membershipsResult.error)  console.error('[getSession] memberships error:', membershipsResult.error.message);
 
   const profile = profileResult.data;
   const memberships = membershipsResult.data ?? [];

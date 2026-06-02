@@ -3,9 +3,14 @@ import { requireSession } from '@/features/auth/server';
 import { AppShell } from '@/shared/components/layout/app-shell';
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
-  // Middleware already redirects anonymous users, but we double-check here
-  // so Server Components downstream can rely on a guaranteed session.
-  const session = await requireSession();
+  let session;
+  try {
+    session = await requireSession();
+  } catch (err) {
+    // Log the real error — visible in Vercel Function Logs
+    console.error('[AppLayout] requireSession failed:', err);
+    throw err;
+  }
 
   return <AppShell session={session}>{children}</AppShell>;
 }
