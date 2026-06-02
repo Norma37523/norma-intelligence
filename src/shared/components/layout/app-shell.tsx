@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 import type { SessionContext } from '@/features/auth';
-import { signOut } from '@/features/auth';
+import { signOut } from '@/features/auth/application/actions';
 
 import { Button } from '@/shared/components/ui/button';
 import { Separator } from '@/shared/components/ui/separator';

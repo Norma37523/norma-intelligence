@@ -4,7 +4,8 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 
 import { requireSession } from '@/features/auth/server';
-import { previewUpload, PreviewTable, CommitButton } from '@/features/uploads';
+import { previewUpload } from '@/features/uploads/application/actions';
+import { PreviewTable, CommitButton } from '@/features/uploads';
 import { getUpload } from '@/features/uploads/server';
 
 import { Button } from '@/shared/components/ui/button';

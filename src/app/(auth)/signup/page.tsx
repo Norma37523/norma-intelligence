@@ -8,7 +8,8 @@ import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Label } from '@/shared/components/ui/label';
 
-import { signUpWithPassword, initialAuthState } from '@/features/auth';
+import { signUpWithPassword } from '@/features/auth/application/actions';
+import { initialAuthState } from '@/features/auth';
 
 export default function SignupPage() {
   const [state, formAction, pending] = useActionState(signUpWithPassword, initialAuthState);

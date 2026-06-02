@@ -13,12 +13,8 @@ export type {
   RowIssueLevel,
 } from './domain';
 
-export {
-  createUpload,
-  previewUpload,
-  commitUpload,
-  deleteUpload,
-} from './application/actions';
+// ⚠️  Server actions NÃO re-exportadas aqui para evitar "Server Action not found".
+// Importe de '@/features/uploads/application/actions' diretamente.
 export type { UploadActionState, UploadPreview } from './application/types';
 export { initialUploadState } from './application/types';
 

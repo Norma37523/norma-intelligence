@@ -11,7 +11,9 @@ export type {
   MemberRole,
 } from './domain/session';
 
-export { signInWithPassword, signUpWithPassword, signOut } from './application/actions';
+// ⚠️  Server actions (signInWithPassword, signUpWithPassword, signOut) NÃO são
+// re-exportadas aqui para evitar o erro "Server Action not found" do Next.js 15.x.
+// Importe-as diretamente de './application/actions' onde necessário.
 export type { AuthActionState } from './application/types';
 export { initialAuthState } from './application/types';
 

@@ -7,11 +7,8 @@ export type {
   Detection,
 } from './domain';
 
-export {
-  generateInsights,
-  dismissInsight,
-  restoreInsight,
-} from './application/actions';
+// ⚠️  Server actions NÃO re-exportadas aqui para evitar "Server Action not found".
+// Importe de '@/features/insights/application/actions' diretamente.
 export type { GenerateInsightsResult } from './application/actions';
 
 export { InsightCard } from './presentation/insight-card';
